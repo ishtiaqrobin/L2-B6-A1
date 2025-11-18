@@ -38,4 +38,18 @@ type Add = (a: number, b: number) => number;
 
 কিন্তু Interface, Type alias এর মতো এইভাবে primitive ও union টাইপ তৈরি করতে পারে না।
 
-#২. keyof keyword:
+#২. keyof কীওয়ার্ডের ব্যবহার:
+
+১. TypeScript এ keyof ব্যবহার করা হয় কোনো অবজেক্ট টাইপের সব প্রপার্টি কী (key) গুলোর ইউনিয়ন টাইপ পেতে। অর্থাৎ, একটি অবজেক্টের সব প্রপার্টি নামের সমষ্টি হিসেবে একটি টাইপ তৈরি করতে আমার keyof কীওয়ার্ড ব্যবহার করে থাকি।
+
+type User = {
+name: string;
+age: number;
+email: string;
+address: string;
+};
+
+type UserKeys = keyof User;
+UserKeys = "name" | "age" | "email" | "address";
+
+অর্থাৎ আমরা keyof কীওয়ার্ড ব্যবহার করে কোনো (User) অবজেক্ট এর সব key গুলা পেতে পারি।
